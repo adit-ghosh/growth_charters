@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "target": "ES2022",
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -19,9 +19,25 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": ["./*"]
+    },
+    // Additional strict options
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": false, // Let ESLint handle this
+    "noUnusedParameters": false, // Let ESLint handle this
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ],
   "exclude": ["node_modules"]
 }
