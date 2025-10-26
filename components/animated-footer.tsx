@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+import Image from "next/image"
 import { Mail, Linkedin, Twitter } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 
@@ -17,10 +18,17 @@ export function AnimatedFooter() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 font-bold text-xs md:text-sm lg:text-lg">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center text-white text-xs md:text-sm font-bold">
-                GC
+              <div className="w-8 h-8  from-primary to-secondary rounded-lg flex items-center justify-center text-white text-xs md:text-sm font-bold">
+                <Image
+                  src="/images/icon.svg"
+                  alt="Growth Charters Logo"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                  priority
+                />
               </div>
-              <span className="text-xs md:text-sm lg:text-base">Growth Charters</span>
+              <span className="text-lg md:text-sm lg:text-base">Growth Charters</span>
             </div>
             <p className="text-xs md:text-xs lg:text-sm text-muted-foreground">
               AI-powered career and life success scoring for personalized growth.
@@ -33,7 +41,7 @@ export function AnimatedFooter() {
               <h3 className="font-semibold text-foreground text-xs md:text-sm lg:text-base">Product</h3>
               <ul className="space-y-2 text-xs md:text-xs lg:text-sm">
                 <li>
-                  <Link href="/404" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link href="https://app-growth-charters.netlify.app/login" className="text-muted-foreground hover:text-primary transition-colors">
                     Growth Charters
                   </Link>
                 </li>
@@ -94,7 +102,7 @@ export function AnimatedFooter() {
               >
                 <Mail size={18} />
               </a>
-              <ThemeToggle />
+              {/* <ThemeToggle /> */}
             </div>
           </div>
         </div>
@@ -105,6 +113,7 @@ export function AnimatedFooter() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-xs lg:text-sm text-muted-foreground">
           <p>&copy; 2025 Growth Charters. All rights reserved.</p>
+            <ThemeToggle />
           <div className="flex gap-6">
             <Link href="/privacy-policy" className="hover:text-primary transition-colors">
               Privacy Policy

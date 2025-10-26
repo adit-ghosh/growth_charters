@@ -10,7 +10,10 @@ const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600", "
 export const metadata: Metadata = {
   title: "Growth Charters - AI-Powered Career & Life Success",
   description: "Personalized AI-driven career and life success scoring to help you grow and expand.",
-  generator: "v0.app",
+  generator: "Growth Charters - AI-Powered Career & Life Success",
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({

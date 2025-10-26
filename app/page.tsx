@@ -9,6 +9,8 @@ import { AnimatedCard } from "@/components/animated-card"
 import { Carousel } from "@/components/carousel"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Zap, Brain, TrendingUp, CheckCircle2 } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -40,7 +42,15 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="mb-8 flex justify-center"
           >
-            <img src="/images/design-mode/gc%20logo%20-01.png" alt="Growth Charters Logo" className="h-24 w-auto" />
+            <Image
+              src="/images/logo.svg"
+              alt="Growth Charters Logo"
+              width={250}
+              height={300}
+              className="object-contain"
+              priority
+            />
+
           </motion.div>
 
           <motion.h1
@@ -78,13 +88,15 @@ export default function Home() {
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </a>
-            <Button
-              size="lg"
-              variant="outline"
-              className="rounded-full px-8 border-primary/30 hover:border-primary bg-transparent"
-            >
-              Watch Demo
-            </Button>
+            <Link href="/404">
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-full px-8 border-primary/30 hover:border-primary bg-transparent"
+              >
+                Watch Demo
+              </Button>
+            </Link>
           </motion.div>
 
           {/* Trust Badge */}
