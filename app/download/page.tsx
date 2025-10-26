@@ -192,7 +192,7 @@ export default function DownloadPage() {
         >
           <div className="rounded-xl overflow-hidden border border-border shadow-2xl bg-card">
             <img
-              src={`/growth-charter-.jpg?height=500&width=600&query=Growth Charter ${platform.name} desktop application interface`}
+              src={`/images/growth-charter-.jpg?height=500&width=600&query=Growth Charter ${platform.name} desktop application interface`}
               alt={`${platform.name} Application`}
               className="w-full h-auto"
             />
