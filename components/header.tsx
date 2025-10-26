@@ -83,12 +83,14 @@ export function Header() {
             </div>
           </div>
 
-          <button
-            className="px-6 py-2 rounded-full font-medium text-white transition-all hover:shadow-lg"
-            style={{ backgroundColor: "#748759" }}
-          >
-            Get Started
-          </button>
+          <a href="https://app-growth-charters.netlify.app/login">
+            <button
+              className="px-6 py-2 rounded-full font-medium text-white transition-all hover:shadow-lg"
+              style={{ backgroundColor: "#748759" }}
+            >
+              Get Started
+            </button>
+          </a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -156,12 +158,14 @@ export function Header() {
               )}
             </div>
 
-            <button
-              className="px-6 py-2 rounded-full font-medium text-white transition-all hover:shadow-lg w-full"
-              style={{ backgroundColor: "#748759" }}
-            >
-              Get Started
-            </button>
+            <a href="https://app-growth-charters.netlify.app/login" className="w-full">
+              <button
+                className="px-6 py-2 rounded-full font-medium text-white transition-all hover:shadow-lg w-full"
+                style={{ backgroundColor: "#748759" }}
+              >
+                Get Started
+              </button>
+            </a>
           </div>
         </div>
       )}

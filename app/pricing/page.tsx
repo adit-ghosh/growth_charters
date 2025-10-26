@@ -249,9 +249,11 @@ export default function Pricing() {
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-8">
               Join thousands of professionals transforming their careers with Growth Charters.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
-              Start Your Free Trial
-            </Button>
+            <a href="https://app-growth-charters.netlify.app/login">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
+                Start Your Free Trial
+              </Button>
+            </a>
           </div>
         </ScrollReveal>
       </section>

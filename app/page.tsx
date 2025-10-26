@@ -69,13 +69,15 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
           >
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 group"
-            >
-              Start Free Trial
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <a href="https://app-growth-charters.netlify.app/login">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 group"
+              >
+                Start Free Trial
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
             <Button
               size="lg"
               variant="outline"
@@ -378,13 +380,15 @@ export default function Home() {
             <p className="text-base sm:text-lg md:text-lg text-muted-foreground mb-8 leading-relaxed">
               Join thousands of professionals using Growth Charters to achieve their goals and unlock their potential.
             </p>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 group"
-            >
-              Get Started Today
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <a href="https://app-growth-charters.netlify.app/login">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 group"
+              >
+                Get Started Today
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
           </div>
         </ScrollReveal>
       </section>

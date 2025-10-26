@@ -53,9 +53,11 @@ export default function About() {
 
           <ScrollReveal delay={0.2}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
-                Get Your GC Score
-              </Button>
+              <a href="https://app-growth-charters.netlify.app/login">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
+                  Get Your GC Score
+                </Button>
+              </a>
               <Button
                 size="lg"
                 variant="outline"
@@ -335,16 +337,20 @@ export default function About() {
               Join thousands discovering their real potential.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
-                Get Your GC Score
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-full px-8 border-primary/30 hover:border-primary bg-transparent"
-              >
-                Join as a Company
-              </Button>
+              <a href="https://app-growth-charters.netlify.app/login">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
+                  Get Your GC Score
+                </Button>
+              </a>
+              <a href="https://app-growth-charters.netlify.app/login">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full px-8 border-primary/30 hover:border-primary bg-transparent"
+                >
+                  Join as a Company
+                </Button>
+              </a>
             </div>
           </div>
         </ScrollReveal>
