@@ -75,7 +75,7 @@ export function Header() {
                 Download
               </Link>
               <Link
-                href="#growth-charters"
+                href="https://app-growth-charters.netlify.app/login"
                 className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#748759] hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors"
               >
                 Growth Charters
@@ -148,7 +148,7 @@ export function Header() {
                     Download
                   </Link>
                   <Link
-                    href="#growth-charters"
+                    href="https://app-growth-charters.netlify.app/login"
                     className="block text-sm text-gray-700 dark:text-gray-300 hover:text-[#748759] transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
