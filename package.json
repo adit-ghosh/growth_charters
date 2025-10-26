@@ -3,10 +3,16 @@
   "version": "0.1.15",
   "private": true,
   "scripts": {
+    "dev": "next dev --turbo",
     "build": "next build",
-    "dev": "next dev",
+    "start": "next start",
     "lint": "eslint .",
-    "start": "next start"
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,css,md}": ["eslint --fix", "prettier --write"]
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
@@ -71,7 +77,14 @@
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^9.38.0",
+    "eslint-config-next": "^16.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
     "postcss": "^8.5",
+    "prettier": "^3.6.2",
     "tailwindcss": "^4.1.9",
     "typescript": "^5"
   }
