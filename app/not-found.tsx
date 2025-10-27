@@ -1,26 +1,26 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { useRouter } from "next/navigation"
-import { motion } from "framer-motion"
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 export default function NotFound() {
-  const router = useRouter()
-  const [countdown, setCountdown] = useState(10)
+  const router = useRouter();
+  const [countdown, setCountdown] = useState(10);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCountdown((prev) => {
         if (prev <= 1) {
-          router.push("/")
-          return 0
+          router.push("/");
+          return 0;
         }
-        return prev - 1
-      })
-    }, 1000)
+        return prev - 1;
+      });
+    }, 1000);
 
-    return () => clearInterval(timer)
-  }, [router])
+    return () => clearInterval(timer);
+  }, [router]);
 
   return (
     <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-6 overflow-hidden">
@@ -52,11 +52,17 @@ export default function NotFound() {
 
         {/* Description */}
         <p className="text-base sm:text-lg text-muted-foreground mb-8">
-          Oops! The page you're looking for doesn't exist. Don't worry, we'll redirect you to the home page.
+          Oops! The page you're looking for doesn't exist. Don't worry, we'll redirect you to the
+          home page.
         </p>
 
         {/* Countdown */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mb-8">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="mb-8"
+        >
           <p className="text-lg font-semibold text-primary">
             Redirecting in{" "}
             <motion.span
@@ -83,5 +89,5 @@ export default function NotFound() {
         </motion.button>
       </motion.div>
     </div>
-  )
+  );
 }

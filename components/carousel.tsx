@@ -1,39 +1,39 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface CarouselProps {
-  children: React.ReactNode[]
-  className?: string
+  children: React.ReactNode[];
+  className?: string;
 }
 
 export function Carousel({ children, className = "" }: CarouselProps) {
-  const [current, setCurrent] = useState(0)
-  const [isAutoPlay, setIsAutoPlay] = useState(true)
+  const [current, setCurrent] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
 
   useEffect(() => {
-    if (!isAutoPlay) return
+    if (!isAutoPlay) return;
 
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % children.length)
-    }, 5000)
+      setCurrent((prev) => (prev + 1) % children.length);
+    }, 5000);
 
-    return () => clearInterval(timer)
-  }, [isAutoPlay, children.length])
+    return () => clearInterval(timer);
+  }, [isAutoPlay, children.length]);
 
   const next = () => {
-    setCurrent((prev) => (prev + 1) % children.length)
-    setIsAutoPlay(false)
-  }
+    setCurrent((prev) => (prev + 1) % children.length);
+    setIsAutoPlay(false);
+  };
 
   const prev = () => {
-    setCurrent((prev) => (prev - 1 + children.length) % children.length)
-    setIsAutoPlay(false)
-  }
+    setCurrent((prev) => (prev - 1 + children.length) % children.length);
+    setIsAutoPlay(false);
+  };
 
   return (
     <div className={`relative w-full ${className}`}>
@@ -76,13 +76,13 @@ export function Carousel({ children, className = "" }: CarouselProps) {
           <button
             key={idx}
             onClick={() => {
-              setCurrent(idx)
-              setIsAutoPlay(false)
+              setCurrent(idx);
+              setIsAutoPlay(false);
             }}
             className={`h-2 rounded-full transition-all ${idx === current ? "bg-primary w-8" : "bg-muted w-2"}`}
           />
         ))}
       </div>
     </div>
-  )
+  );
 }

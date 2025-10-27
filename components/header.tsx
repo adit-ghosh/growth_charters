@@ -1,27 +1,29 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { ChevronDown } from "lucide-react"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/80 backdrop-blur-md shadow-sm dark:bg-slate-950/80" : "bg-transparent"
+        isScrolled
+          ? "bg-white/80 backdrop-blur-md shadow-sm dark:bg-slate-950/80"
+          : "bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -40,17 +42,26 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/" className="text-sm font-medium transition-colors hover:text-[#748759] relative group">
+          <Link
+            href="/"
+            className="text-sm font-medium transition-colors hover:text-[#748759] relative group"
+          >
             Home
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#748759] transition-all duration-300 group-hover:w-full" />
           </Link>
 
-          <Link href="/pricing" className="text-sm font-medium transition-colors hover:text-[#748759] relative group">
+          <Link
+            href="/pricing"
+            className="text-sm font-medium transition-colors hover:text-[#748759] relative group"
+          >
             Pricing
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#748759] transition-all duration-300 group-hover:w-full" />
           </Link>
 
-          <Link href="/about" className="text-sm font-medium transition-colors hover:text-[#748759] relative group">
+          <Link
+            href="/about"
+            className="text-sm font-medium transition-colors hover:text-[#748759] relative group"
+          >
             About
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#748759] transition-all duration-300 group-hover:w-full" />
           </Link>
@@ -94,7 +105,10 @@ export function Header() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden flex flex-col gap-1.5" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button
+          className="md:hidden flex flex-col gap-1.5"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
           <span className="w-6 h-0.5 bg-current transition-all" />
           <span className="w-6 h-0.5 bg-current transition-all" />
           <span className="w-6 h-0.5 bg-current transition-all" />
@@ -136,7 +150,10 @@ export function Header() {
                 onClick={() => setIsResourcesOpen(!isResourcesOpen)}
               >
                 Resources
-                <ChevronDown size={16} className={`transition-transform ${isResourcesOpen ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform ${isResourcesOpen ? "rotate-180" : ""}`}
+                />
               </button>
               {isResourcesOpen && (
                 <div className="pl-4 space-y-2">
@@ -170,5 +187,5 @@ export function Header() {
         </div>
       )}
     </header>
-  )
+  );
 }

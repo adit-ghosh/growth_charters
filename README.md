@@ -7,10 +7,12 @@ This repository contains the source code for the **Growth Charters front-end**, 
 ### 💻 Getting Started
 
 #### Prerequisites
-* Node.js (LTS version)
-* npm or yarn
+
+- Node.js (LTS version)
+- npm or yarn
 
 #### Installation
+
 1.  **Clone the repository**:
     ```bash
     git clone [https://github.com/growth-charters/frontend.git](https://github.com/growth-charters/frontend.git)
@@ -23,7 +25,9 @@ This repository contains the source code for the **Growth Charters front-end**, 
     ```
 
 #### Running Locally
+
 To start the development server:
+
 ```bash
 npm run dev
  or yarn dev
@@ -37,4 +41,5 @@ npm run dev
 | **AI Model** | Contains the core machine learning and AI features.   | [growth-charters-ai-model](https://github.com/growth-charters/ai-model) |
 | **Main Orchestrator**| The main repository that combines all project components. | [growth-charters](https://github.com/growth-charters/growth-charters) |
 
-*Note: The links in the table above are placeholders. Please update them with the correct URLs.*"# growth_charters" 
+*Note: The links in the table above are placeholders. Please update them with the correct URLs.*"# growth_charters"
+```

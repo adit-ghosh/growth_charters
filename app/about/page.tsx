@@ -1,11 +1,11 @@
-"use client"
-import { motion } from "framer-motion"
-import { MorphingHeader } from "@/components/morphing-header"
-import { AnimatedFooter } from "@/components/animated-footer"
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { Carousel } from "@/components/carousel"
-import { Button } from "@/components/ui/button"
-import { CheckCircle, Zap, Shield, Users } from "lucide-react"
+"use client";
+import { motion } from "framer-motion";
+import { MorphingHeader } from "@/components/morphing-header";
+import { AnimatedFooter } from "@/components/animated-footer";
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { Carousel } from "@/components/carousel";
+import { Button } from "@/components/ui/button";
+import { CheckCircle, Zap, Shield, Users } from "lucide-react";
 
 export default function About() {
   const containerVariants = {
@@ -17,7 +17,7 @@ export default function About() {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -26,7 +26,7 @@ export default function About() {
       y: 0,
       transition: { duration: 0.5 },
     },
-  }
+  };
 
   return (
     <div className="bg-background text-foreground">
@@ -41,20 +41,25 @@ export default function About() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <ScrollReveal>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">Redefining Employability with AI</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+              Redefining Employability with AI
+            </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-8">
-              Growth Charter gives individuals and companies a clear, data-driven GC Score to measure real potential —
-              not just buzzwords.
+              Growth Charter gives individuals and companies a clear, data-driven GC Score to
+              measure real potential — not just buzzwords.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://app-growth-charters.netlify.app/login">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8"
+                >
                   Get Your GC Score
                 </Button>
               </a>
@@ -77,9 +82,9 @@ export default function About() {
             <div className="mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">The Problem</h2>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-                The job market is noisy and vague. Candidates don't know how employable they are. Companies can't
-                measure culture clearly. Traditional hiring relies on gut feelings and outdated metrics, leaving both
-                sides uncertain.
+                The job market is noisy and vague. Candidates don't know how employable they are.
+                Companies can't measure culture clearly. Traditional hiring relies on gut feelings
+                and outdated metrics, leaving both sides uncertain.
               </p>
             </div>
           </ScrollReveal>
@@ -93,8 +98,8 @@ export default function About() {
             <div className="mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">The Solution</h2>
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8">
-                Growth Charter uses AI to analyze resumes and workplace culture to generate a simple GC Score that shows
-                how employable someone is or how strong a company's culture is.
+                Growth Charter uses AI to analyze resumes and workplace culture to generate a simple
+                GC Score that shows how employable someone is or how strong a company's culture is.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -110,7 +115,7 @@ export default function About() {
                     desc: "Transparent scoring based on real metrics, not guesswork",
                   },
                 ].map((item, idx) => {
-                  const Icon = item.icon
+                  const Icon = item.icon;
                   return (
                     <motion.div
                       key={idx}
@@ -121,7 +126,7 @@ export default function About() {
                       <h3 className="font-bold mb-2">{item.title}</h3>
                       <p className="text-sm text-muted-foreground">{item.desc}</p>
                     </motion.div>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -166,7 +171,9 @@ export default function About() {
           <ScrollReveal>
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">How It Works</h2>
-              <p className="text-base sm:text-lg text-muted-foreground">3 simple steps to your GC Score</p>
+              <p className="text-base sm:text-lg text-muted-foreground">
+                3 simple steps to your GC Score
+              </p>
             </div>
           </ScrollReveal>
 
@@ -250,7 +257,9 @@ export default function About() {
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Built by a Small Team</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                Built by a Small Team
+              </h2>
               <p className="text-base sm:text-lg text-muted-foreground">
                 Developers and strategists focused on fair, data-driven hiring
               </p>
@@ -266,7 +275,11 @@ export default function About() {
               viewport={{ once: true, amount: 0.2 }}
             >
               {[
-                { name: "Sarah Chen", role: "CEO & Co-founder", bio: "AI researcher with 10+ years in career tech" },
+                {
+                  name: "Sarah Chen",
+                  role: "CEO & Co-founder",
+                  bio: "AI researcher with 10+ years in career tech",
+                },
                 {
                   name: "Michael Rodriguez",
                   role: "CTO & Co-founder",
@@ -298,7 +311,11 @@ export default function About() {
           <div className="md:hidden">
             <Carousel>
               {[
-                { name: "Sarah Chen", role: "CEO & Co-founder", bio: "AI researcher with 10+ years in career tech" },
+                {
+                  name: "Sarah Chen",
+                  role: "CEO & Co-founder",
+                  bio: "AI researcher with 10+ years in career tech",
+                },
                 {
                   name: "Michael Rodriguez",
                   role: "CTO & Co-founder",
@@ -332,13 +349,18 @@ export default function About() {
 
         <ScrollReveal>
           <div className="max-w-3xl mx-auto text-center relative z-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Ready to Get Your GC Score?</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Ready to Get Your GC Score?
+            </h2>
             <p className="text-base sm:text-lg text-muted-foreground mb-8">
               Join thousands discovering their real potential.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://app-growth-charters.netlify.app/login">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8"
+                >
                   Get Your GC Score
                 </Button>
               </a>
@@ -358,5 +380,5 @@ export default function About() {
 
       <AnimatedFooter />
     </div>
-  )
+  );
 }

@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { MorphingHeader } from "@/components/morphing-header"
-import { AnimatedFooter } from "@/components/animated-footer"
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { Carousel } from "@/components/carousel"
-import { Button } from "@/components/ui/button"
-import { PricingCard } from "@/components/pricing-card"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { MorphingHeader } from "@/components/morphing-header";
+import { AnimatedFooter } from "@/components/animated-footer";
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { Carousel } from "@/components/carousel";
+import { Button } from "@/components/ui/button";
+import { PricingCard } from "@/components/pricing-card";
 
 export default function Pricing() {
-  const [isAnnual, setIsAnnual] = useState(false)
+  const [isAnnual, setIsAnnual] = useState(false);
 
   const plans = [
     {
@@ -71,7 +71,7 @@ export default function Pricing() {
       popular: false,
       color: "from-tertiary to-tertiary/80",
     },
-  ]
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -82,7 +82,7 @@ export default function Pricing() {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -91,7 +91,7 @@ export default function Pricing() {
       y: 0,
       transition: { duration: 0.5 },
     },
-  }
+  };
 
   return (
     <div className="bg-background text-foreground">
@@ -120,7 +120,9 @@ export default function Pricing() {
           <ScrollReveal delay={0.2}>
             <div className="flex items-center justify-center gap-6 mb-16">
               <motion.span
-                animate={{ color: isAnnual ? "var(--color-muted-foreground)" : "var(--color-foreground)" }}
+                animate={{
+                  color: isAnnual ? "var(--color-muted-foreground)" : "var(--color-foreground)",
+                }}
                 className="font-semibold text-sm md:text-lg"
               >
                 Monthly
@@ -141,7 +143,9 @@ export default function Pricing() {
               </motion.button>
 
               <motion.div
-                animate={{ color: isAnnual ? "var(--color-foreground)" : "var(--color-muted-foreground)" }}
+                animate={{
+                  color: isAnnual ? "var(--color-foreground)" : "var(--color-muted-foreground)",
+                }}
                 className="font-semibold text-sm md:text-lg"
               >
                 Annual
@@ -168,7 +172,7 @@ export default function Pricing() {
             viewport={{ once: true, amount: 0.2 }}
           >
             {plans.map((plan, idx) => (
-              <PricingCard key={idx} plan={plan} idx={idx} isAnnual={isAnnual} />
+              <PricingCard key={idx} plan={plan} isAnnual={isAnnual} />
             ))}
           </motion.div>
         </div>
@@ -178,7 +182,7 @@ export default function Pricing() {
           <Carousel>
             {plans.map((plan, idx) => (
               <div key={idx} className="px-4">
-                <PricingCard plan={plan} idx={idx} isAnnual={isAnnual} />
+                <PricingCard plan={plan} isAnnual={isAnnual} />
               </div>
             ))}
           </Carousel>
@@ -190,8 +194,12 @@ export default function Pricing() {
         <div className="max-w-3xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground">Have questions? We have answers.</p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
+                Have questions? We have answers.
+              </p>
             </div>
           </ScrollReveal>
 
@@ -245,12 +253,17 @@ export default function Pricing() {
 
         <ScrollReveal>
           <div className="max-w-3xl mx-auto text-center relative z-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Ready to get started?</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Ready to get started?
+            </h2>
             <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-8">
               Join thousands of professionals transforming their careers with Growth Charters.
             </p>
             <a href="https://app-growth-charters.netlify.app/login">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8"
+              >
                 Start Your Free Trial
               </Button>
             </a>
@@ -260,5 +273,5 @@ export default function Pricing() {
 
       <AnimatedFooter />
     </div>
-  )
+  );
 }

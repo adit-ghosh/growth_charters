@@ -1,32 +1,33 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Menu, X, ChevronDown } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function MorphingHeader() {
-  const headerRef = useRef<HTMLDivElement>(null)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false)
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
           ? "w-[90%] left-1/2 -translate-x-1/2 top-4 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg dark:bg-slate-950/10 dark:border-slate-800/20"
           : "w-full rounded-none bg-transparent border-b border-transparent"
-        }`}
+      }`}
     >
       <div className="flex items-center justify-between px-6 py-4">
         {/* Logo */}
@@ -67,8 +68,9 @@ export function MorphingHeader() {
             </button>
 
             <div
-              className={`absolute left-0 mt-0 w-48 bg-white dark:bg-slate-900 rounded-lg shadow-lg transition-all duration-300 py-2 ${isResourcesOpen ? "opacity-100 visible" : "opacity-0 invisible"
-                }`}
+              className={`absolute left-0 mt-0 w-48 bg-white dark:bg-slate-900 rounded-lg shadow-lg transition-all duration-300 py-2 ${
+                isResourcesOpen ? "opacity-100 visible" : "opacity-0 invisible"
+              }`}
             >
               <Link
                 href="/download"
@@ -100,7 +102,6 @@ export function MorphingHeader() {
             About
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#748759] transition-all duration-300 group-hover:w-full" />
           </Link>
-
         </nav>
 
         {/* Right Actions */}
@@ -141,7 +142,10 @@ export function MorphingHeader() {
                 onClick={() => setIsResourcesOpen(!isResourcesOpen)}
               >
                 Resources
-                <ChevronDown size={16} className={`transition-transform ${isResourcesOpen ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  size={16}
+                  className={`transition-transform ${isResourcesOpen ? "rotate-180" : ""}`}
+                />
               </button>
 
               {isResourcesOpen && (
@@ -179,12 +183,9 @@ export function MorphingHeader() {
             >
               About
             </Link>
-
-
-
           </nav>
         </div>
       )}
     </header>
-  )
+  );
 }

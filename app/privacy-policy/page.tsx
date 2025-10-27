@@ -1,7 +1,7 @@
-"use client"
-import { MorphingHeader } from "@/components/morphing-header"
-import { AnimatedFooter } from "@/components/animated-footer"
-import { ScrollReveal } from "@/components/scroll-reveal"
+"use client";
+import { MorphingHeader } from "@/components/morphing-header";
+import { AnimatedFooter } from "@/components/animated-footer";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 export default function PrivacyPolicy() {
   const sections = [
@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
       content:
         "For privacy-related questions or concerns, please contact us at privacy@growthcharter.ai. We aim to respond to all inquiries within 7 business days.",
     },
-  ]
+  ];
 
   return (
     <div className="bg-background text-foreground">
@@ -89,7 +89,9 @@ export default function PrivacyPolicy() {
               <ScrollReveal key={idx} delay={idx * 0.05}>
                 <div>
                   <h2 className="text-2xl sm:text-3xl font-bold mb-4">{section.title}</h2>
-                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">{section.content}</p>
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                    {section.content}
+                  </p>
                 </div>
               </ScrollReveal>
             ))}
@@ -104,5 +106,5 @@ export default function PrivacyPolicy() {
 
       <AnimatedFooter />
     </div>
-  )
+  );
 }

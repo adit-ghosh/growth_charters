@@ -1,26 +1,26 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { MorphingHeader } from "@/components/morphing-header"
-import { AnimatedFooter } from "@/components/animated-footer"
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { AnimatedCard } from "@/components/animated-card"
-import { Carousel } from "@/components/carousel"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Zap, Brain, TrendingUp, CheckCircle2 } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { MorphingHeader } from "@/components/morphing-header";
+import { AnimatedFooter } from "@/components/animated-footer";
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { AnimatedCard } from "@/components/animated-card";
+import { Carousel } from "@/components/carousel";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Zap, Brain, TrendingUp, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
-  })
+  });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95])
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
 
   return (
     <div ref={containerRef} className="bg-background text-foreground">
@@ -34,7 +34,10 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" />
         </div>
 
-        <motion.div style={{ opacity, scale }} className="max-w-5xl mx-auto text-center relative z-10">
+        <motion.div
+          style={{ opacity, scale }}
+          className="max-w-5xl mx-auto text-center relative z-10"
+        >
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -50,7 +53,6 @@ export default function Home() {
               className="object-contain"
               priority
             />
-
           </motion.div>
 
           <motion.h1
@@ -68,8 +70,8 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto"
           >
-            Unlock personalized insights and achieve measurable growth through intelligent AI-driven analysis. Discover
-            your path to success.
+            Unlock personalized insights and achieve measurable growth through intelligent AI-driven
+            analysis. Discover your path to success.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -118,9 +120,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">How Growth Charter Works</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                How Growth Charter Works
+              </h2>
               <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Our AI-powered platform guides you through a seamless journey to unlock your full potential
+                Our AI-powered platform guides you through a seamless journey to unlock your full
+                potential
               </p>
             </div>
           </ScrollReveal>
@@ -131,13 +136,15 @@ export default function Home() {
                 icon: Brain,
                 step: "01",
                 title: "Data Integration",
-                description: "Connect your career history, skills, and aspirations to our AI system.",
+                description:
+                  "Connect your career history, skills, and aspirations to our AI system.",
               },
               {
                 icon: Zap,
                 step: "02",
                 title: "AI Analysis",
-                description: "Our advanced algorithms analyze your profile and generate personalized insights.",
+                description:
+                  "Our advanced algorithms analyze your profile and generate personalized insights.",
               },
               {
                 icon: TrendingUp,
@@ -149,10 +156,11 @@ export default function Home() {
                 icon: CheckCircle2,
                 step: "04",
                 title: "Progress Tracking",
-                description: "Monitor your growth with real-time dashboards and detailed analytics.",
+                description:
+                  "Monitor your growth with real-time dashboards and detailed analytics.",
               },
             ].map((feature, idx) => {
-              const Icon = feature.icon
+              const Icon = feature.icon;
               return (
                 <AnimatedCard key={idx} delay={idx * 0.1} glow={idx === 1}>
                   <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/30 transition-colors">
@@ -160,9 +168,11 @@ export default function Home() {
                   </div>
                   <div className="text-3xl font-bold text-primary mb-3">{feature.step}</div>
                   <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">{feature.description}</p>
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    {feature.description}
+                  </p>
                 </AnimatedCard>
-              )
+              );
             })}
           </div>
 
@@ -174,28 +184,32 @@ export default function Home() {
                   icon: Brain,
                   step: "01",
                   title: "Data Integration",
-                  description: "Connect your career history, skills, and aspirations to our AI system.",
+                  description:
+                    "Connect your career history, skills, and aspirations to our AI system.",
                 },
                 {
                   icon: Zap,
                   step: "02",
                   title: "AI Analysis",
-                  description: "Our advanced algorithms analyze your profile and generate personalized insights.",
+                  description:
+                    "Our advanced algorithms analyze your profile and generate personalized insights.",
                 },
                 {
                   icon: TrendingUp,
                   step: "03",
                   title: "Success Scoring",
-                  description: "Receive actionable recommendations tailored to your growth journey.",
+                  description:
+                    "Receive actionable recommendations tailored to your growth journey.",
                 },
                 {
                   icon: CheckCircle2,
                   step: "04",
                   title: "Progress Tracking",
-                  description: "Monitor your growth with real-time dashboards and detailed analytics.",
+                  description:
+                    "Monitor your growth with real-time dashboards and detailed analytics.",
                 },
               ].map((feature, idx) => {
-                const Icon = feature.icon
+                const Icon = feature.icon;
                 return (
                   <div key={idx} className="px-4">
                     <AnimatedCard delay={0} glow={idx === 1}>
@@ -204,10 +218,12 @@ export default function Home() {
                       </div>
                       <div className="text-3xl font-bold text-primary mb-3">{feature.step}</div>
                       <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm">{feature.description}</p>
+                      <p className="text-muted-foreground leading-relaxed text-sm">
+                        {feature.description}
+                      </p>
                     </AnimatedCard>
                   </div>
-                )
+                );
               })}
             </Carousel>
           </div>
@@ -239,21 +255,24 @@ export default function Home() {
               },
               {
                 title: "Personalized Insights",
-                description: "Get tailored recommendations based on your unique skills, experience, and aspirations.",
+                description:
+                  "Get tailored recommendations based on your unique skills, experience, and aspirations.",
                 icon: Zap,
               },
               {
                 title: "Actionable Roadmap",
-                description: "Receive a clear, step-by-step plan to achieve your career and life goals.",
+                description:
+                  "Receive a clear, step-by-step plan to achieve your career and life goals.",
                 icon: TrendingUp,
               },
               {
                 title: "Progress Tracking",
-                description: "Monitor your growth with real-time dashboards and detailed analytics.",
+                description:
+                  "Monitor your growth with real-time dashboards and detailed analytics.",
                 icon: CheckCircle2,
               },
             ].map((feature, idx) => {
-              const Icon = feature.icon
+              const Icon = feature.icon;
               return (
                 <AnimatedCard key={idx} delay={idx * 0.1}>
                   <div className="flex gap-4">
@@ -268,7 +287,7 @@ export default function Home() {
                     </div>
                   </div>
                 </AnimatedCard>
-              )
+              );
             })}
           </div>
 
@@ -284,21 +303,24 @@ export default function Home() {
                 },
                 {
                   title: "Personalized Insights",
-                  description: "Get tailored recommendations based on your unique skills, experience, and aspirations.",
+                  description:
+                    "Get tailored recommendations based on your unique skills, experience, and aspirations.",
                   icon: Zap,
                 },
                 {
                   title: "Actionable Roadmap",
-                  description: "Receive a clear, step-by-step plan to achieve your career and life goals.",
+                  description:
+                    "Receive a clear, step-by-step plan to achieve your career and life goals.",
                   icon: TrendingUp,
                 },
                 {
                   title: "Progress Tracking",
-                  description: "Monitor your growth with real-time dashboards and detailed analytics.",
+                  description:
+                    "Monitor your growth with real-time dashboards and detailed analytics.",
                   icon: CheckCircle2,
                 },
               ].map((feature, idx) => {
-                const Icon = feature.icon
+                const Icon = feature.icon;
                 return (
                   <div key={idx} className="px-4">
                     <AnimatedCard delay={0}>
@@ -315,7 +337,7 @@ export default function Home() {
                       </div>
                     </AnimatedCard>
                   </div>
-                )
+                );
               })}
             </Carousel>
           </div>
@@ -388,9 +410,12 @@ export default function Home() {
 
         <ScrollReveal>
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Career?</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+              Ready to Transform Your Career?
+            </h2>
             <p className="text-base sm:text-lg md:text-lg text-muted-foreground mb-8 leading-relaxed">
-              Join thousands of professionals using Growth Charters to achieve their goals and unlock their potential.
+              Join thousands of professionals using Growth Charters to achieve their goals and
+              unlock their potential.
             </p>
             <a href="https://app-growth-charters.netlify.app/login">
               <Button
@@ -407,5 +432,5 @@ export default function Home() {
 
       <AnimatedFooter />
     </div>
-  )
+  );
 }

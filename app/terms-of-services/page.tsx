@@ -1,7 +1,7 @@
-"use client"
-import { MorphingHeader } from "@/components/morphing-header"
-import { AnimatedFooter } from "@/components/animated-footer"
-import { ScrollReveal } from "@/components/scroll-reveal"
+"use client";
+import { MorphingHeader } from "@/components/morphing-header";
+import { AnimatedFooter } from "@/components/animated-footer";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 export default function TermsOfServices() {
   const sections = [
@@ -47,9 +47,10 @@ export default function TermsOfServices() {
     },
     {
       title: "Contact",
-      content: "For questions about these Terms of Service, please contact us at legal@growthcharter.ai",
+      content:
+        "For questions about these Terms of Service, please contact us at legal@growthcharter.ai",
     },
-  ]
+  ];
 
   return (
     <div className="bg-background text-foreground">
@@ -83,7 +84,9 @@ export default function TermsOfServices() {
               <ScrollReveal key={idx} delay={idx * 0.05}>
                 <div>
                   <h2 className="text-2xl sm:text-3xl font-bold mb-4">{section.title}</h2>
-                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">{section.content}</p>
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                    {section.content}
+                  </p>
                 </div>
               </ScrollReveal>
             ))}
@@ -98,5 +101,5 @@ export default function TermsOfServices() {
 
       <AnimatedFooter />
     </div>
-  )
+  );
 }

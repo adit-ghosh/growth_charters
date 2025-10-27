@@ -1,36 +1,63 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Check, X, Loader2 } from "lucide-react"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Check, X, Loader2 } from "lucide-react";
+
+// Define Razorpay types
+interface RazorpayPaymentResponse {
+  razorpay_payment_id: string;
+  razorpay_order_id: string;
+  razorpay_signature: string;
+}
+
+interface RazorpayOptions {
+  key: string;
+  amount: number;
+  currency: string;
+  name: string;
+  description: string;
+  order_id: string;
+  handler: (response: RazorpayPaymentResponse) => void;
+  prefill: {
+    name: string;
+    email: string;
+  };
+  theme: {
+    color: string;
+  };
+}
+
+interface RazorpayInstance {
+  open: () => void;
+}
 
 declare global {
   interface Window {
-    Razorpay: any
+    Razorpay: new (options: RazorpayOptions) => RazorpayInstance;
   }
 }
 
 interface Plan {
-  id: string
-  name: string
-  description: string
-  monthlyPrice: number | null
-  annualPrice: number | null
-  customPrice?: boolean
-  features: Array<{ name: string; included: boolean }>
-  popular: boolean
-  color: string
+  id: string;
+  name: string;
+  description: string;
+  monthlyPrice: number | null;
+  annualPrice: number | null;
+  customPrice?: boolean;
+  features: Array<{ name: string; included: boolean }>;
+  popular: boolean;
+  color: string;
 }
 
 interface PricingCardProps {
-  plan: Plan
-  idx: number
-  isAnnual: boolean
+  plan: Plan;
+  isAnnual: boolean;
 }
 
-export function PricingCard({ plan, idx, isAnnual }: PricingCardProps) {
-  const [loadingPlan, setLoadingPlan] = useState(false)
+export function PricingCard({ plan, isAnnual }: PricingCardProps) {
+  const [loadingPlan, setLoadingPlan] = useState(false);
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -39,18 +66,22 @@ export function PricingCard({ plan, idx, isAnnual }: PricingCardProps) {
       y: 0,
       transition: { duration: 0.5 },
     },
-  }
+  };
 
   const handlePayment = async () => {
     if (plan.customPrice) {
-      window.location.href = "mailto:sales@growthcharter.com?subject=Enterprise Plan Inquiry"
-      return
+      window.location.href = "mailto:sales@growthcharter.com?subject=Enterprise Plan Inquiry";
+      return;
     }
 
-    setLoadingPlan(true)
+    setLoadingPlan(true);
 
     try {
-      const amount = isAnnual ? plan.annualPrice : plan.monthlyPrice
+      const amount = isAnnual ? plan.annualPrice : plan.monthlyPrice;
+
+      if (!amount) {
+        throw new Error("Invalid plan price");
+      }
 
       const orderResponse = await fetch("/api/create-order", {
         method: "POST",
@@ -60,30 +91,30 @@ export function PricingCard({ plan, idx, isAnnual }: PricingCardProps) {
           planName: plan.name,
           planId: plan.id,
         }),
-      })
+      });
 
-      const order = await orderResponse.json()
+      const order = await orderResponse.json();
 
       if (!order.id) {
-        throw new Error("Failed to create order")
+        throw new Error("Failed to create order");
       }
 
-      const configResponse = await fetch("/api/razorpay-config")
-      const { keyId } = await configResponse.json()
+      const configResponse = await fetch("/api/razorpay-config");
+      const { keyId } = await configResponse.json();
 
       // Load Razorpay script
-      const script = document.createElement("script")
-      script.src = "https://checkout.razorpay.com/v1/checkout.js"
-      script.async = true
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.async = true;
       script.onload = () => {
-        const options = {
+        const options: RazorpayOptions = {
           key: keyId,
           amount: order.amount,
           currency: order.currency,
           name: "Growth Charter",
           description: `${plan.name} Plan - ${isAnnual ? "Annual" : "Monthly"}`,
           order_id: order.id,
-          handler: async (response: any) => {
+          handler: async (response: RazorpayPaymentResponse) => {
             // Verify payment
             const verifyResponse = await fetch("/api/verify-payment", {
               method: "POST",
@@ -93,15 +124,15 @@ export function PricingCard({ plan, idx, isAnnual }: PricingCardProps) {
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_signature: response.razorpay_signature,
               }),
-            })
+            });
 
-            const verifyData = await verifyResponse.json()
+            const verifyData = await verifyResponse.json();
 
             if (verifyData.success) {
-              alert("Payment successful! Welcome to Growth Charter.")
-              window.location.href = "/dashboard"
+              alert("Payment successful! Welcome to Growth Charter.");
+              window.location.href = "/dashboard";
             } else {
-              alert("Payment verification failed. Please try again.")
+              alert("Payment verification failed. Please try again.");
             }
           },
           prefill: {
@@ -111,19 +142,20 @@ export function PricingCard({ plan, idx, isAnnual }: PricingCardProps) {
           theme: {
             color: "#748759",
           },
-        }
+        };
 
-        const razorpay = new window.Razorpay(options)
-        razorpay.open()
-      }
-      document.body.appendChild(script)
+        const razorpay = new window.Razorpay(options);
+        razorpay.open();
+      };
+      document.body.appendChild(script);
     } catch (error) {
-      console.error("Payment error:", error)
-      alert("Failed to initiate payment. Please try again.")
+      // eslint-disable-next-line no-console
+      console.error("Payment error:", error);
+      alert("Failed to initiate payment. Please try again.");
     } finally {
-      setLoadingPlan(false)
+      setLoadingPlan(false);
     }
-  }
+  };
 
   return (
     <motion.div
@@ -153,7 +185,9 @@ export function PricingCard({ plan, idx, isAnnual }: PricingCardProps) {
 
       <div
         className={`relative p-8 border-2 rounded-2xl backdrop-blur-sm ${
-          plan.popular ? "border-primary bg-card/80" : "border-border bg-card/50 hover:border-primary/50"
+          plan.popular
+            ? "border-primary bg-card/80"
+            : "border-border bg-card/50 hover:border-primary/50"
         }`}
       >
         {/* Popular Badge */}
@@ -185,7 +219,9 @@ export function PricingCard({ plan, idx, isAnnual }: PricingCardProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <span className="text-5xl font-bold">${isAnnual ? plan.annualPrice : plan.monthlyPrice}</span>
+              <span className="text-5xl font-bold">
+                ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
+              </span>
               <span className="text-muted-foreground ml-2">/{isAnnual ? "year" : "month"}</span>
               {isAnnual && plan.monthlyPrice && (
                 <p className="text-sm text-primary mt-2">
@@ -234,7 +270,11 @@ export function PricingCard({ plan, idx, isAnnual }: PricingCardProps) {
               ) : (
                 <X className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
               )}
-              <span className={feature.included ? "text-foreground text-sm" : "text-muted-foreground text-sm"}>
+              <span
+                className={
+                  feature.included ? "text-foreground text-sm" : "text-muted-foreground text-sm"
+                }
+              >
                 {feature.name}
               </span>
             </motion.div>
@@ -242,5 +282,5 @@ export function PricingCard({ plan, idx, isAnnual }: PricingCardProps) {
         </div>
       </div>
     </motion.div>
-  )
+  );
 }

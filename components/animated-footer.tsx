@@ -1,8 +1,8 @@
-"use client"
-import Link from "next/link"
-import Image from "next/image"
-import { Mail, Linkedin, Twitter } from "lucide-react"
-import { ThemeToggle } from "@/components/theme-toggle"
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import { Mail, Linkedin, Twitter } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function AnimatedFooter() {
   return (
@@ -38,20 +38,31 @@ export function AnimatedFooter() {
           <div className="grid grid-cols-2 gap-8">
             {/* Product Column */}
             <div className="space-y-4">
-              <h3 className="font-semibold text-foreground text-xs md:text-sm lg:text-base">Product</h3>
+              <h3 className="font-semibold text-foreground text-xs md:text-sm lg:text-base">
+                Product
+              </h3>
               <ul className="space-y-2 text-xs md:text-xs lg:text-sm">
                 <li>
-                  <Link href="https://app-growth-charters.netlify.app/login" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link
+                    href="https://app-growth-charters.netlify.app/login"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Growth Charters
                   </Link>
                 </li>
                 <li>
-                  <Link href="/download" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link
+                    href="/download"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Download
                   </Link>
                 </li>
                 <li>
-                  <Link href="/pricing" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link
+                    href="/pricing"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Pricing
                   </Link>
                 </li>
@@ -60,20 +71,31 @@ export function AnimatedFooter() {
 
             {/* Quick Links Column */}
             <div className="space-y-4">
-              <h3 className="font-semibold text-foreground text-xs md:text-sm lg:text-base">Quick Links</h3>
+              <h3 className="font-semibold text-foreground text-xs md:text-sm lg:text-base">
+                Quick Links
+              </h3>
               <ul className="space-y-2 text-xs md:text-xs lg:text-sm">
                 <li>
-                  <Link href="/" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link
+                    href="/"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link
+                    href="/about"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link href="/404" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Link
+                    href="/404"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     Contact Us
                   </Link>
                 </li>
@@ -82,7 +104,9 @@ export function AnimatedFooter() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-foreground text-xs md:text-sm lg:text-base">Connect</h3>
+            <h3 className="font-semibold text-foreground text-xs md:text-sm lg:text-base">
+              Connect
+            </h3>
             <div className="flex gap-4 items-center flex-wrap">
               <a
                 href="#"
@@ -113,7 +137,7 @@ export function AnimatedFooter() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs md:text-xs lg:text-sm text-muted-foreground">
           <p>&copy; 2025 Growth Charters. All rights reserved.</p>
-            <ThemeToggle />
+          <ThemeToggle />
           <div className="flex gap-6">
             <Link href="/privacy-policy" className="hover:text-primary transition-colors">
               Privacy Policy
@@ -125,5 +149,5 @@ export function AnimatedFooter() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
