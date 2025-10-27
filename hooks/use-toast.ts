@@ -3,7 +3,20 @@
 // Inspired by react-hot-toast library
 import * as React from "react";
 
-import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
+// Define types locally instead of importing
+type ToastActionElement = React.ReactElement<{
+  onClick: () => void;
+  altText: string;
+  children: React.ReactNode;
+}>;
+
+type ToastProps = {
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  variant?: "default" | "destructive";
+  className?: string;
+  children?: React.ReactNode;
+};
 
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 1000000;

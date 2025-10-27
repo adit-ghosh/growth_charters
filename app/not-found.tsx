@@ -7,12 +7,13 @@ import { motion } from "framer-motion";
 export default function NotFound() {
   const router = useRouter();
   const [countdown, setCountdown] = useState(10);
+  const [shouldRedirect, setShouldRedirect] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCountdown((prev) => {
         if (prev <= 1) {
-          router.push("/");
+          setShouldRedirect(true);
           return 0;
         }
         return prev - 1;
@@ -20,7 +21,14 @@ export default function NotFound() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [router]);
+  }, []);
+
+  // Separate useEffect for navigation to avoid setState during render
+  useEffect(() => {
+    if (shouldRedirect) {
+      router.push("/");
+    }
+  }, [shouldRedirect, router]);
 
   return (
     <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-6 overflow-hidden">
