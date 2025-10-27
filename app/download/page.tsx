@@ -176,7 +176,7 @@ const MobileSection = ({ platform }: { platform: Platform }) => {
       >
         <div className="rounded-xl overflow-hidden border border-border shadow-2xl bg-card">
           <img
-            src={`/growth-charter-.jpg?height=600&width=300&query=Growth Charter ${platform.name} mobile app interface`}
+            src={`/images/growth-charter-.jpg?height=600&width=300&query=Growth Charter ${platform.name} mobile app interface`}
             alt={`${platform.name} Application`}
             className="w-full h-auto"
           />
